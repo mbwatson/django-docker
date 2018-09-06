@@ -1,6 +1,7 @@
 version: '3'
 
 volumes:
+  pgdata:
   static_files:
 
 services:
@@ -25,6 +26,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
       POSTGRES_PASS: password
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
     ports:
       - 5432:5432
 
