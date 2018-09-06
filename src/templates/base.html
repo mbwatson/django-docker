@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PubMan</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            color: #222;
+        }
+        a, a:hover, a:visited, a:active {
+            color: #c33;
+            text-decoration: none;
+            transition: color 250ms;
+        }
+        a:hover {
+            color: #e55 ;
+        }
+        main {
+            margin: 2em auto;
+            width: 80%;
+            max-width: 1080px;
+        }
+        ul {
+            list-style-type: none;
+        }
+        li {
+            margin-bottom: 1em;
+        }
+        nav {
+            width: 100%;
+            background-color: #000;
+        }
+        .nav__menu {
+            margin: 0 auto;
+            width: 80%;
+            max-width: 1080px;
+        }
+        .nav__menu > a {
+            display: inline-block;
+            height: 100%;
+            line-height: 3em;
+            padding: 1rem;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background-color 250ms;
+        }
+        .nav__menu > a:hover {
+            background-color: #222;
+        }
+        form {
+            /*text-align: center;*/
+        }
+        label, input {
+            font-size: 1.3em;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+        label {
+            line-height: 2.5em;
+        }
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            line-height: 1.5em;
+            outline: 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 0.25em;
+            margin-bottom: 1em;
+        }
+        input[type="text"] {
+            padding: 0.25em 0.5em;
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            text-transform: uppercase;
+            background-color: #fff;
+            border: 1px solid #c33;
+            color: #c33;
+            transition: background-color 250ms, color 250ms;
+        }
+        input[type="submit"]:hover {
+            background-color: #c33;
+            color: #fff;
+        }
+        input[type="radio"] {
+            display: inline;
+            margin-right: 1em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav__menu">
+            <a href="/">Home</a>
+        </div>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

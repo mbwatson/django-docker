@@ -1,0 +1,39 @@
+version: '3'
+volumes:
+  static_files:
+services:
+  webserver:
+    container_name: webapp_server
+    image: nginx:latest
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - app
+    volumes:
+      - static_files:/static_files
+  db:
+    image: postgres
+    container_name: webapp_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASS: password
+    ports:
+      - 5432:5432
+  app:
+    container_name: webapp
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: docker/django/Dockerfile
+    command: gunicorn -w 4 webapp.wsgi:application -b 0.0.0.0:8000
+    volumes:
+      - ./src:/src
+      - static_files:/src/static_files
+    ports:
+      - 8000:8000
+
