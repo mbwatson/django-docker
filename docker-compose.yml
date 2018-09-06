@@ -1,7 +1,10 @@
 version: '3'
+
 volumes:
   static_files:
+
 services:
+
   webserver:
     container_name: webapp_server
     image: nginx:latest
@@ -14,8 +17,9 @@ services:
       - app
     volumes:
       - static_files:/static_files
+
   db:
-    image: postgres
+    image: postgres:10
     container_name: webapp_db
     environment:
       POSTGRES_USER: postgres
@@ -23,6 +27,7 @@ services:
       POSTGRES_PASS: password
     ports:
       - 5432:5432
+
   app:
     container_name: webapp
     depends_on:
