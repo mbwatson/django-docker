@@ -17,8 +17,10 @@ _outline of config steps: more details to come_
 - docker-compose exec app python manage.py collectstatic
 - docker-compose exec app python manage.py createsuperuser
 - change database name, user, password
-- change secret_key in webapp/settings.py
-    + environment variable?
+- set `DJANGO_SECRET_KEY` environment variable in `docker/django/Dockerfile`
+```
+ENV DJANGO_SECRET_KEY 1234567890!@#$%^&*()MY!SUPER!SECET!KEY)(*&^%$#@!)
+```
 - ...
 - ...
 - ...
